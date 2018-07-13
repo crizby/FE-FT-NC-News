@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Header from './components/Header';
 import Navbar from './components/Navbar';
-import HomeArticles from './components/HomeArticles';
-import Users from './components/Users'
-import { Route } from 'react-router-dom'
+import Main from './components/Main';
 
 
 class App extends Component {
@@ -12,13 +10,13 @@ class App extends Component {
     articles: [],
     users: []
   }
+
   render() {
     return (
       <div className="App">
         <Header />
         <Navbar />
-        <Route exact path="/" render={() => <HomeArticles homeArticles={this.state.articles} />} />
-        <Route path="/users" render={() => <Users users={this.state.users} />} />
+        <Main articles={this.state.articles} users={this.state.users} />
       </div>
     );
   }

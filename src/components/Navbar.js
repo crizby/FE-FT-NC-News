@@ -11,11 +11,11 @@ const Navbar = () => {
         Home
       </NavLink>
       {` | `}
-      <NavLink to="/articles" activeStyle={activeStyle}>
+      <NavLink exact to="/articles" activeStyle={activeStyle}>
         Articles
       </NavLink>
       {` | `}
-      <NavLink to="/users" activeStyle={activeStyle}>
+      <NavLink exact to="/users" activeStyle={activeStyle}>
         Users
       </NavLink>
     </div>
