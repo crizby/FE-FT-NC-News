@@ -4,7 +4,8 @@ import axios from "axios";
 class SingleArticle extends Component {
   state = {
     article: {},
-    comments: []
+    comments: [],
+    newMessage: ""
   };
 
   componentDidMount() {
@@ -77,8 +78,14 @@ class SingleArticle extends Component {
           })}
         </ul>
         <p>Add a comment!</p>
-        <input type="text" />
-        <button type="button">Post Comment</button>
+        <input
+          type="text"
+          onChange={this.handleChange}
+          value={this.state.newMessage}
+        />
+        <button type="button" onClick={this.handlePost}>
+          Post Comment
+        </button>
       </div>
     );
   }
@@ -123,7 +130,7 @@ class SingleArticle extends Component {
             this.setState({
               comments: this.state.comments.map(comment => {
                 if (comment._id === id) {
-                  return { ...comment, vote: comment.votes + 1 };
+                  return { ...comment, votes: comment.votes + 1 };
                 }
                 return comment;
               })
@@ -135,12 +142,39 @@ class SingleArticle extends Component {
             this.setState({
               comments: this.state.comments.map(comment => {
                 if (comment._id === id) {
-                  return { ...comment, vote: comment.votes + 1 };
+                  return { ...comment, votes: comment.votes - 1 };
                 }
                 return comment;
               })
             })
           );
+  };
+
+  handleChange = event => {
+    this.setState({
+      newMessage: event.target.value
+    });
+  };
+
+  handlePost = () => {
+    const newComment = {
+      body: this.state.newMessage,
+      belongs_to: this.state.article.belongs_to,
+      created_by: "5b33402a8dacc0147263ae4f"
+    };
+    axios
+      .post(
+        `https://cb-nc-news.herokuapp.com/api/articles/${
+          this.props.match.params.article_id
+        }/comments`,
+        newComment
+      )
+      .then(
+        this.setState({
+          comments: [...this.state.comments, ...newComment],
+          newMessage: ""
+        })
+      );
   };
 }
 
