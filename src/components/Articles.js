@@ -10,7 +10,7 @@ const Articles = ({ articles }) => {
         <h3>{title}</h3>
         <Link to={`/articles/${_id}`}><h2>{title}</h2></Link>
         <h4>{belongs_to}</h4>
-        <h4>By: {created_by}</h4>
+        <h4>By: {created_by.username}</h4>
         <h4>{body}</h4>
         <h4>Comments: {comments} | Votes: {votes}</h4>
         <h4>Article ID: {_id}</h4>
