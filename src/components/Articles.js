@@ -1,26 +1,52 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from "react";
+import AllArticles from "./AllArticles";
+import CodingArticles from "./CodingArticles";
+import CookingArticles from "./CookingArticles";
+import FootballArticles from "./FootballArticles";
 
-const Articles = ({ articles }) => {
+class Articles extends Component {
+  state = {
+    filterSetting: "all"
+  };
 
-  return <ul>
-    {articles.map(article => {
-      const { title, body, created_by, comments, votes, belongs_to, _id } = article
-      return <li key={article._id}>
-        <h3>{title}</h3>
-        <Link to={`/articles/${_id}`}><h2>{title}</h2></Link>
-        <h4>{belongs_to}</h4>
-        <h4>By: {created_by.username}</h4>
-        <h4>{body}</h4>
-        <h4>Comments: {comments} | Votes: {votes}</h4>
-        <h4>Article ID: {_id}</h4>
-        <hr />
+  render() {
+    const { articles } = this.props;
+    return (
+      <div>
+        <button type="button" onClick={() => this.handleFilterClick("all")}>
+          All
+        </button>
+        <button type="button" onClick={() => this.handleFilterClick("coding")}>
+          Coding
+        </button>
+        <button type="button" onClick={() => this.handleFilterClick("cooking")}>
+          Cooking
+        </button>
+        <button
+          type="button"
+          onClick={() => this.handleFilterClick("football")}
+        >
+          Football
+        </button>
 
-      </li>
+        {this.state.filterSetting === "all" ? (
+          <AllArticles articles={articles} />
+        ) : this.state.filterSetting === "coding" ? (
+          <CodingArticles articles={articles} />
+        ) : this.state.filterSetting === "cooking" ? (
+          <CookingArticles articles={articles} />
+        ) : (
+          <FootballArticles articles={articles} />
+        )}
+      </div>
+    );
+  }
 
-    })}
-  </ul>
+  handleFilterClick = filter => {
+    this.setState({
+      filterSetting: filter
+    });
+  };
 }
-
 
 export default Articles;
