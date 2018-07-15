@@ -71,6 +71,9 @@ class SingleArticle extends Component {
                   >
                     Vote Down
                   </button>
+                  <button onClick={() => this.handleDeleteComment(_id)}>
+                    Delete
+                  </button>
                 </h4>
                 <hr />
               </li>
@@ -171,10 +174,21 @@ class SingleArticle extends Component {
       )
       .then(
         this.setState({
-          comments: [...this.state.comments, ...newComment],
+          comments: [
+            ...this.state.comments,
+            { ...newComment, votes: 0, created_by: "grumpy19" }
+          ],
           newMessage: ""
         })
       );
+  };
+
+  handleDeleteComment = id => {
+    axios.delete(`https://cb-nc-news.herokuapp.com/api/comments/${id}`).then(
+      this.setState({
+        comments: this.state.comments.filter(comment => comment._id !== id)
+      })
+    );
   };
 }
 
