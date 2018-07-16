@@ -3,7 +3,6 @@ import HomeArticles from "./HomeArticles";
 import Articles from "./Articles";
 import Users from "./Users";
 import SingleArticle from "./SingleArticle";
-import SingleUser from "./SingleUser";
 import { Route, Switch } from "react-router-dom";
 
 class Main extends Component {
@@ -17,10 +16,6 @@ class Main extends Component {
           render={props => (
             <SingleArticle articles={articles} users={users} {...props} />
           )}
-        />
-        <Route
-          path="users/:user_id"
-          render={props => <SingleUser users={users} {...props} />}
         />
         <Route
           exact
