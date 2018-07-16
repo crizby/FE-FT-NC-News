@@ -59,3 +59,7 @@
   background-color: black;
   color: white;
 }
+
+.title:hover {
+  color: black;
+}

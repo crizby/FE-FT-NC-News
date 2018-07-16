@@ -3,9 +3,6 @@ import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 
 const Navbar = () => {
-  // const activeStyle = {
-  //   background: "red"
-  // };
   return (
     <div className="navBar">
       <NavLink exact to="/">
