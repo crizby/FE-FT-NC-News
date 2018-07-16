@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Navbar from "./components/Navbar";
 import Main from "./components/Main";
 import "./App.css";
+import activeUser from "./Context.js";
 
 class App extends Component {
   state = {
@@ -16,7 +17,9 @@ class App extends Component {
       <div className="App">
         <Header />
         <Navbar />
-        <Main articles={this.state.articles} users={this.state.users} />
+        <activeUser.Provider value="grumpy19">
+          <Main articles={this.state.articles} users={this.state.users} />
+        </activeUser.Provider>
         <footer className="footer">2018</footer>
       </div>
     );

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./SingleArticle.css";
+import activeUser from "../Context.js";
 
 class SingleArticle extends Component {
   state = {
@@ -96,6 +97,10 @@ class SingleArticle extends Component {
           </ul>
           <br />
           <h2 className="singleArticleTitle">Post a comment!</h2>
+          <br />
+          <activeUser.Consumer>
+            {activeUser => <h3>By: {activeUser}</h3>}
+          </activeUser.Consumer>
           <br />
           <input
             type="text"
