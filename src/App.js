@@ -20,7 +20,7 @@ class App extends Component {
         <activeUser.Provider value="grumpy19">
           <Main articles={this.state.articles} users={this.state.users} />
         </activeUser.Provider>
-        <footer className="footer">2018</footer>
+        <footer className="footer" />
       </div>
     );
   }

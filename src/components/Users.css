@@ -6,12 +6,15 @@
 }
 .userList {
   padding: 30px;
+  display: flex;
+  flex-wrap: wrap;
 }
 .userListItem {
   box-sizing: border-box;
+  width: 200px;
   margin: 10px;
   padding: 20px 40px 10px 40px;
-  background-color: yellow;
+  background-color: gray;
   border: 1px solid black;
   list-style-type: none;
 }

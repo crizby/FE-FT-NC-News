@@ -5,6 +5,7 @@ import "./HomeArticles.css";
 const HomeArticles = ({ homeArticles }) => {
   return (
     <div className="homeContainer">
+      <h2 className="subTitle">The top 5 trending articles</h2>
       <ul className="list">
         {[...homeArticles]
           .sort((a, b) => {
