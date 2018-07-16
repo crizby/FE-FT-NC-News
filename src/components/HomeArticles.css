@@ -1,0 +1,42 @@
+.homeContainer {
+  width: 70%;
+  margin: auto;
+  background-color: #f2f1f0;
+  box-sizing: border-box;
+}
+.listDiv {
+  margin-bottom: 20px;
+}
+
+.list {
+  /* width: 75%;
+  margin: auto; */
+  padding: 40px 40px;
+  box-sizing: border-box;
+  list-style-type: none;
+}
+
+.listItem {
+  border: 1px solid black;
+  /* padding: 15px; */
+  background-color: white;
+  box-sizing: border-box;
+}
+
+.title {
+  background: linear-gradient(to right, #ed213a, #93291e);
+  padding: 10px 20px;
+  font-family: helvetica;
+}
+
+.body {
+  font-family: helvetica;
+  padding: 10px 20px;
+}
+
+.listFooter {
+  font-family: helvetica;
+  padding: 10px 20px;
+  color: white;
+  background-color: black;
+}

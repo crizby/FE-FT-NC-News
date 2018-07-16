@@ -1,25 +1,26 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom'
+import React from "react";
+import { NavLink } from "react-router-dom";
+import "./Navbar.css";
 
 const Navbar = () => {
-  const activeStyle = {
-    background: 'red'
-  };
+  // const activeStyle = {
+  //   background: "red"
+  // };
   return (
-    <div>
-      <NavLink exact to="/" activeStyle={activeStyle}>
-        Home
+    <div className="navBar">
+      <NavLink exact to="/">
+        HOME
       </NavLink>
       {` | `}
-      <NavLink exact to="/articles" activeStyle={activeStyle}>
-        Articles
+      <NavLink exact to="/articles">
+        ARTICLES
       </NavLink>
       {` | `}
-      <NavLink exact to="/users" activeStyle={activeStyle}>
-        Users
+      <NavLink exact to="/users">
+        USERS
       </NavLink>
     </div>
   );
-}
+};
 
 export default Navbar;

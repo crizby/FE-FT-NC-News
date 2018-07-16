@@ -1,0 +1,16 @@
+.container {
+  width: 70%;
+  margin: auto;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 40px;
+  border: 0;
+  background-color: white;
+  font-family: helvetica;
+  font-weight: bold;
+  box-sizing: border-box;
+}
+
+.redLetter {
+  color: red;
+}

@@ -1,0 +1,61 @@
+.articlesContainer {
+  width: 70%;
+  margin: auto;
+  background-color: #f2f1f0;
+  box-sizing: border-box;
+}
+
+.articlesList {
+  width: 100%;
+  padding: 0px 40px 10px 40px;
+  list-style-type: none;
+  box-sizing: border-box;
+  background-color: #f2f1f0;
+}
+.listDiv {
+  margin-bottom: 20px;
+}
+
+.listItem {
+  border: 1px solid black;
+  background-color: white;
+  box-sizing: border-box;
+}
+
+.title {
+  background: linear-gradient(to right, #ed213a, #93291e);
+  padding: 10px 20px;
+  font-family: helvetica;
+}
+
+.body {
+  font-family: helvetica;
+  padding: 10px 20px;
+}
+
+.listFooter {
+  font-family: helvetica;
+  padding: 10px 20px;
+  color: white;
+  background-color: black;
+}
+
+.buttonContainer {
+  padding: 15px 20px;
+  align-items: center;
+}
+
+.filterButton {
+  background-color: red;
+  color: white;
+  font-size: 16px;
+  border: none;
+  padding: 10px 24px;
+  margin: 2px;
+  border-radius: 4px;
+}
+
+.filterButton:hover {
+  background-color: black;
+  color: white;
+}

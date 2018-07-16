@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-import Header from './components/Header';
-import Navbar from './components/Navbar';
-import Main from './components/Main';
-
+import React, { Component } from "react";
+import axios from "axios";
+import Header from "./components/Header";
+import Navbar from "./components/Navbar";
+import Main from "./components/Main";
+import "./App.css";
 
 class App extends Component {
   state = {
     articles: [],
     users: []
-  }
+  };
 
   render() {
     return (
@@ -17,6 +17,7 @@ class App extends Component {
         <Header />
         <Navbar />
         <Main articles={this.state.articles} users={this.state.users} />
+        <footer className="footer">2018</footer>
       </div>
     );
   }
@@ -25,28 +26,28 @@ class App extends Component {
     let articles;
     let users;
     try {
-      articles = await this.fetchArticles()
-      users = await this.fetchUsers()
+      articles = await this.fetchArticles();
+      users = await this.fetchUsers();
+    } catch (e) {
+      articles = [];
+      users = [];
     }
-    catch (e) {
-      articles = []
-      users = []
-    }
-    this.setState({ articles, users })
-  }
+    this.setState({ articles, users });
+  };
 
   fetchArticles = async () => {
-    const { data } = await axios.get('https://cb-nc-news.herokuapp.com/api/articles')
-    return data.articles
-  }
+    const { data } = await axios.get(
+      "https://cb-nc-news.herokuapp.com/api/articles"
+    );
+    return data.articles;
+  };
 
   fetchUsers = async () => {
-    const { data } = await axios.get('https://cb-nc-news.herokuapp.com/api/users')
-    return data.users
-  }
-
-
-
+    const { data } = await axios.get(
+      "https://cb-nc-news.herokuapp.com/api/users"
+    );
+    return data.users;
+  };
 }
 
 export default App;

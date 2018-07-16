@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./Articles.css";
 
 const AllArticles = ({ articles }) => {
   return (
-    <ul>
+    <ul className="articlesList">
       {articles.map(article => {
         const {
           title,
@@ -15,20 +16,25 @@ const AllArticles = ({ articles }) => {
           _id
         } = article;
         return (
-          <li key={article._id}>
-            <h3>{title}</h3>
-            <Link to={`/articles/${_id}`}>
-              <h2>{title}</h2>
-            </Link>
-            <h4>{belongs_to}</h4>
-            <h4>By: {created_by.username}</h4>
-            <h4>{body}</h4>
-            <h4>
-              Comments: {comments} | Votes: {votes}
-            </h4>
-            <h4>Article ID: {_id}</h4>
-            <hr />
-          </li>
+          <div className="listDiv">
+            <li key={article._id} className="listItem">
+              <Link to={`/articles/${_id}`}>
+                <h3 className="title">{title}</h3>
+              </Link>
+              <p className="body">
+                Category:{" "}
+                {belongs_to
+                  .slice(0, 1)
+                  .toUpperCase()
+                  .concat(belongs_to.slice(1))}
+              </p>
+              <p className="body">By: {created_by.username}</p>
+              <p className="body">{body}</p>
+              <h3 className="listFooter">
+                Comments: {comments} | Votes: {votes}
+              </h3>
+            </li>
+          </div>
         );
       })}
     </ul>
