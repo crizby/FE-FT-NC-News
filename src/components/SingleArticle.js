@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import "./SingleArticle.css";
 
 class SingleArticle extends Component {
   state = {
@@ -33,62 +34,83 @@ class SingleArticle extends Component {
 
   render() {
     return (
-      <div>
-        <h2>{this.state.article.title}</h2>
-        <h3>{}</h3>
-        <h3>{this.state.article.belongs_to}</h3>
-        <h4>{this.state.article.body}</h4>
-        <h4>
-          Votes : {this.state.article.votes}{" "}
-          <button onClick={() => this.handleArticleVoteClick("up")}>
-            Vote Up
-          </button>
-          <button onClick={() => this.handleArticleVoteClick("down")}>
-            Vote Down
-          </button>
-        </h4>
-        <br />
-        <hr />
-        <h3>Comments</h3>
+      <div className="singleArticleContainer">
+        <div className="singleArticle">
+          <h2 className="singleArticleTitle">{this.state.article.title}</h2>
+          <h4 className="body">{this.state.article.belongs_to}</h4>
+          <h4 className="body">{this.state.article.body}</h4>
+          <h4 className="body">
+            Votes : {this.state.article.votes}{" "}
+            <button
+              className="articleVoteButton"
+              onClick={() => this.handleArticleVoteClick("up")}
+            >
+              Vote Up
+            </button>
+            <button
+              className="articleVoteButton"
+              onClick={() => this.handleArticleVoteClick("down")}
+            >
+              Vote Down
+            </button>
+          </h4>
+          <br />
+          <hr />
+          <h2 className="singleArticleTitle">Comments</h2>
+          <br />
+          <ul>
+            {this.state.comments.map((comment, i) => {
+              const { body, created_by, votes, _id } = comment;
 
-        <ul>
-          {this.state.comments.map((comment, i) => {
-            const { body, created_by, votes, _id } = comment;
-
-            return (
-              <li key={_id}>
-                <h3>By: {created_by.username}</h3>
-                <h4>{body}</h4>
-                <h4>
-                  Votes: {votes}{" "}
-                  <button
-                    onClick={() => this.handleCommentVoteClick("up", _id)}
-                  >
-                    Vote Up
-                  </button>
-                  <button
-                    onClick={() => this.handleCommentVoteClick("down", _id)}
-                  >
-                    Vote Down
-                  </button>
-                  <button onClick={() => this.handleDeleteComment(_id)}>
-                    Delete
-                  </button>
-                </h4>
-                <hr />
-              </li>
-            );
-          })}
-        </ul>
-        <p>Add a comment!</p>
-        <input
-          type="text"
-          onChange={this.handleChange}
-          value={this.state.newMessage}
-        />
-        <button type="button" onClick={this.handlePost}>
-          Post Comment
-        </button>
+              return (
+                <li key={_id}>
+                  <h3>By: {created_by.username}</h3>
+                  <br />
+                  <h4>{body}</h4>
+                  <br />
+                  <h4>
+                    Votes: {votes}{" "}
+                    <button
+                      className="voteButton"
+                      onClick={() => this.handleCommentVoteClick("up", _id)}
+                    >
+                      Vote Up
+                    </button>
+                    <button
+                      className="voteButton"
+                      onClick={() => this.handleCommentVoteClick("down", _id)}
+                    >
+                      Vote Down
+                    </button>
+                    <button
+                      className="voteButton"
+                      onClick={() => this.handleDeleteComment(_id)}
+                    >
+                      Delete
+                    </button>
+                  </h4>
+                  <hr />
+                </li>
+              );
+            })}
+          </ul>
+          <br />
+          <h2 className="singleArticleTitle">Post a comment!</h2>
+          <br />
+          <input
+            type="text"
+            className="inputField"
+            onChange={this.handleChange}
+            value={this.state.newMessage}
+          />
+          <button
+            type="button"
+            className="postButton"
+            onClick={this.handlePost}
+          >
+            Post Comment
+          </button>
+        </div>
       </div>
     );
   }

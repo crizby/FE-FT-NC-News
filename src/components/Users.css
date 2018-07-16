@@ -1,0 +1,23 @@
+.userListContainer {
+  width: 70%;
+  margin: auto;
+  background-color: #f2f1f0;
+  box-sizing: border-box;
+}
+.userList {
+  padding: 30px;
+}
+.userListItem {
+  box-sizing: border-box;
+  margin: 10px;
+  padding: 20px 40px 10px 40px;
+  background-color: yellow;
+  border: 1px solid black;
+  list-style-type: none;
+}
+
+.userImage {
+  width: 150px;
+  height: 150px;
+  border-radius: 75px;
+}
